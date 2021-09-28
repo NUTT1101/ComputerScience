@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge_1</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <div>請輸入一個字串:</div>
+
+        <input class="ten_px" type="text" id="input">
+        
+        <br>
+
+        <button class="ten_px" id="button">submit</button>
+    
+        <br>
+
+        <div class="ten_px">
+            轉換對照表: a=1, b=2....., z=26 (參照 <a href="https://zh.wikipedia.org/wiki/ASCII">ASCII</a>)
+            
+            <br>
+            
+            數字及符號(包含大寫符號)不轉換，只轉換小寫英文字母。
+        </div>
+    </div>
+
+    <style>
+        .ten_px {
+            margin-top: 10px;
+        }
+    </style>
+
+    <script>
+
+        document.getElementById("button").addEventListener("click", function() {
+            var input = document.getElementById("input").value;
+            var sum = 0;
+
+            input = input.split("");
+            
+            input.forEach(element => {
+                var number = element.charCodeAt(0);
+                if (number >= 97 && number <= 122) {
+                    number -= 96;
+                    sum += number;
+                }
+            });
+
+            alert(input + "總和: " + sum);
+        });
+
+    </script>
+    
+</body>
+</html>
