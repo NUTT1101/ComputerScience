@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet"> 
+    
+    <title>challenge_1</title>
+</head>
+<body style="background-color: lightgray;font-family: 'Noto Sans TC', sans-serif;">
+    <div style="text-align: center;">
+        <div>請輸入一個字串:</div>
+
+        <input class="ten_px" type="text" id="input" size="50%" onkeydown="onSubmit(event)">
+        
+        <br>
+
+        <button class="ten_px" id="button" onclick="onSubmit(event)">submit</button>
+    
+        <br>
+
+        <div class="ten_px">
+            轉換對照表: a=1, b=2....., z=26
+            
+            <br>
+            
+            數字及標點符號不轉換，只轉換英文字母。
+        </div>
+
+
+        <img src="./img/c1.png" alt="loading" width="50%" >
+    </div>
+
+    <style>
+        .ten_px {
+            margin-top: 10px;
+        }
+
+        #input {
+            border-radius: 10px;
+        }
+
+        #button {
+            font-size: 120%;
+            background-color: violet;
+            border-radius: 50px;
+            padding: 10px;
+        }
+
+        #button:hover {
+            background-color: aliceblue;
+        }
+
+    </style>
+
+    <script>
+        /**
+         * 提交字串時會使用到的函式
+         * 
+         * @param {event} event 傳入函式的事件
+         */
+        function onSubmit(event) {
+            // 判斷事件是否為按下 按鈕 提交 或 Enter 提交
+            if (event.key == "Enter" || event.type == "click") {
+                let input = document.getElementById("input").value; // 將輸入欄 欄位 的內容紀錄下來
+                alert(input + "\n字串總和: " + getLetterSum(input)); // 輸出 字串總和
+            }
+        }
+
+        /**
+         * 將使用者輸入的字串切成字母並各自轉換成數字代號
+         * 
+         * @param {string} input 使用者輸入的字串
+         * @reutrns {number} sum 字串總和
+         */
+        function getLetterSum(input) {
+            let letters = input.toLowerCase(); // 將字串轉為小寫
+            let sum = 0; // 宣告一個用來紀錄字串總和的變數
+            
+            for (let i=0; i < letters.length; i++) {
+                let charCode = letters.charCodeAt(i); // 取得位於 i 位置的字母 ASCII 十進位 值
+                
+                // 判斷是否在於 a(97) ~ z(122)
+                if (charCode >= 97 && charCode <= 122) {
+                    sum += charCode - 96; // 將此字母編號加總到 sum 變數裡面 
+                }   
+            }
+            
+            return sum; // 回傳 字串總和
+        }
+    </script>
+    
+</body>
+</html>

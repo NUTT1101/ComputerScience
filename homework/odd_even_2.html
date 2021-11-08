@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>挑戰2</title>
+</head>
+<body>
+    <div>
+        <label id="lable">input nmber</label>
+        <input type="text" id="number">
+    </div>
+
+    <div class="div">
+        <button id="button" >submit</button>
+    </div>
+
+    <output id="output">output</output>
+    <script>
+        document.getElementById("button").addEventListener("click", function() {
+            var number = document.getElementById("number").value;   
+            
+            if (!(number+"").match("^([0-9])*$")) {
+                alert("請輸入整數");
+                return;
+            }
+
+            if (number % 2 == 0) {
+                document.getElementById("output").innerHTML = number + "是偶數";
+            } else {
+                document.getElementById("output").innerHTML = number + "是奇數";
+            }
+        });
+    </script>
+</body>
+</html>

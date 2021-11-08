@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=s, initial-scale=1.0">
-    <title>Document</title>
+    <title>作業</title>
 </head>
 <body>
-    <input type="text" id="number">
-    <button id="button" >submit</button>
+    <div>
+        <label id="lable">input nmber</label>
+        <input type="text" id="number">
+    </div>
 
+    <div class="div">
+        <button id="button" >submit</button>
+    </div>
+
+    <output id="output">output</output>
     <script>
         document.getElementById("button").addEventListener("click", function() {
             var number = document.getElementById("number").value;
@@ -24,11 +31,10 @@
             }
 
             if (number % 2 == 0) {
-                alert(number + "是偶數");
+                document.getElementById("output").innerHTML = number + "是偶數";
             } else {
-                alert(number + "是奇數");
+                document.getElementById("output").innerHTML = number + "是奇數";
             }
-
         });
     </script>
 </body>
