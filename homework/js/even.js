@@ -12,7 +12,7 @@ function getIdSelectorValue(id) {
  * Determine whether input is even.
  * 
  * @param {number} number 
- * @returns 
+ * @returns is even
  */
 function isEven(number) {
     return number % 2 == 0;
