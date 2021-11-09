@@ -45,7 +45,5 @@ function onSubmit() {
 }
 
 // Add event listener to element.
-document.getElementById("button").addEventListener("click", function() {
-    onSubmit();
-});
+document.getElementById("button").addEventListener("click", onSubmit);
 
